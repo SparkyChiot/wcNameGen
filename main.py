@@ -429,9 +429,6 @@ suffixes = [
     "wind",
     "wing",
     "wish",
-    "star",
-    "paw",
-    "kit",
 ]
 coatColors = [
     "red",
@@ -460,7 +457,7 @@ eyeColors = [
     "copper",
     "yellow",
 ]
-coatType = [
+coatTypes = [
     "solid",
     "tuxedo",
     "mask and mantle",
@@ -478,10 +475,73 @@ coatType = [
     "calico",
     "colorpoint",
 ]
+genderTitles = [
+    "tom",
+    "she-cat",
+  ]
+kitGenders = [
+  "she-kit",
+  "tom",
+  ]
 
-def generateName():
+def generateNameFromRole(role):
     prefix = prefixes[random.randrange(len(prefixes))]
-    suffix = suffixes[random.randrange(len(suffixes))]
-    
+    coatColor = coatColors[random.randrange(len(coatColors))]
+    eyeColor = eyeColors[random.randrange(len(eyeColors))]
+    coatType = coatTypes[random.randrange(len(coatTypes))]
+    if (role == "6"):
+      gender = "she-cat"
+    else:
+      gender = genderTitles[random.randrange(len(genderTitles))]
+    if (role == "1"):
+      suffix = "star"
+    elif (role == "3"):
+      suffix = "paw"
+    elif (role == "4"):
+      suffix = "kit"
+      gender = kitGenders[random.randrange(len(kitGenders))]
+      if (coatColor == "orange"):
+        join = ", an "
+      else:
+        join = ", a "
+      return prefix + suffix + join + coatColor + " " + gender + ","
+    else:
+      suffix = suffixes[random.randrange(len(suffixes))]
+    return prefix + suffix + " — " + coatColor + " " + coatType + " " + gender + " with " + eyeColor + " eyes"
 
-generateName()
+def generateAllegiances():
+  print("LEADER: " + generateNameFromRole("1"))
+  print("DEPUTY: " + generateNameFromRole("2"))
+  print("MEDICINE CAT: " + generateNameFromRole("2"))
+  print("WARRIORS:")
+  for i in range(random.randint(1,7)):
+    print(generateNameFromRole("2"))
+    if (random.randint(1,100) > 65):
+      print("APPRENTICE, " + generateNameFromRole("3"))
+  print("QUEENS:")
+  for i in range (random.randint(1,4)):
+    kits = []
+    for i in range (random.randint(1,4)):
+      kits.append(generateNameFromRole("4"))
+    kits.insert(len(kits)-1, "and")
+    kits = " ".join(kits)
+    print(generateNameFromRole("6") + " (mother of " + kits + ")")
+  print("ELDERS:")
+  for i in range(random.randint(1,3)):
+    print(generateNameFromRole("2"))
+
+def main():
+  print("")
+  print("what kind of name would you like?")
+  print("1=leader 2=warrior 3=apprentice 4=kit 5=allegiances")
+  role = input()
+  if (role >= "1" and role <= "4"):
+    print(generateNameFromRole(role))
+  elif (role == "5"):
+    generateAllegiances()
+  else:
+    print("invalid answer, please type a number 1-5")
+
+while True:
+  main()
+
