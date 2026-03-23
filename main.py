@@ -1,7 +1,7 @@
 import random
+import difflib
 
 prefixes = [
-<<<<<<< HEAD
     {
         "name": "acorn", 
         "traits": ["nervous", "childish", "insecure", "calm", "careful", "faithful", "loving", "oblivious"],
@@ -17,14 +17,86 @@ prefixes = [
         "traits": ["lonesome", "fierce", "cold", "nervous", "righteous", "insecure", "strict", "compassionate", "thoughtful", "ambitious",  
                    "calm", "careful", "faithful", "loving", "loyal", "responsible", "strange", "wise", 
                    "grumpy", "cunning", "oblivious", "gloomy", "sincere", "flamboyant", "rebellious"],
-        "colors": ["any", "red", "ginger", "orange", "silver", "grey", "blue", "brown", "black", "white", "cream", "yellow", "lilac", "tortoiseshell"]
+        "colors": ["red", "ginger", "orange", "brown", "lilac", "tortoiseshell"]
+    },
+    {
+        "name": "amber",
+        "traits": ["troublesome", "fierce", "childish", "playful", "charismatic", "bold", "nervous", "insecure", "strict", "compassionate", "thoughtful", "confident", "adventurous", 
+                   "calm", "loving", "loyal", "responsible", "shameless", "wise", "oblivious", "sincere", "flamboyant"],
+        "colors": ["red", "ginger", "orange", "brown", "cream", "yellow", "tortoiseshell"]
+    },
+    {
+        "name": "ant",
+        "traits": ["lonesome", "childish", "nervous", "insecure", "compassionate", "thoughtful", "confident", "careful", "faithful", "loyal", 
+                   "responsible", "shameless", "strange", "sneaky", "wise", "grumpy", "oblivious", "gloomy", "sincere", "flamboyant", "rebellious"],
+        "colors": ["grey", "brown", "black", "tortoiseshell"]
+    },
+    {
+        "name": "apple",
+        "traits": ["fierce", "childish", "playful", "charismatic", "bold", "daring", "righteous", "strict", "compassionate", "thoughtful", "ambitious", 
+                   "confident", "adventurous", "calm", "careful", "loving", "loyal", "responsible", "strange", "wise", "arrogant", "sincere", "flamboyant"],
+        "colors": ["red", "ginger", "orange", "brown", "cream", "yellow", "lilac", "tortoiseshell"]
     },
 ]
-{
-        "name": "",
-        "traits": ["troublesome", "lonesome", "fierce", "bloodthirsty", "cold", "childish", "playful", "charismatic", "bold", "daring", 
-                   "nervous", "righteous", "insecure", "strict", "compassionate", "thoughtful", "ambitious", "confident", "adventurous", 
-                   "calm", "careful", "faithful", "loving", "loyal", "responsible", "shameless", "strange", "sneaky", "vengeful", "wise", 
-                   "arrogant", "competitive", "grumpy", "cunning", "oblivious", "gloomy", "sincere", "flamboyant", "rebellious"],
-        "colors": ["any", "red", "ginger", "orange", "silver", "grey", "blue", "brown", "black", "white", "cream", "yellow", "lilac", "tortoiseshell"]
-    },
+
+traits = [
+    "troublesome", 
+    "lonesome", 
+    "fierce", 
+    "bloodthirsty", 
+    "cold", 
+    "childish", 
+    "playful", 
+    "charismatic", 
+    "bold", 
+    "daring", 
+    "nervous", 
+    "righteous", 
+    "insecure", 
+    "strict", 
+    "compassionate", 
+    "thoughtful", 
+    "ambitious", 
+    "confident", 
+    "adventurous", 
+    "calm", 
+    "careful",
+    "faithful", 
+    "loving", 
+    "loyal", 
+    "responsible", 
+    "shameless", 
+    "strange", 
+    "sneaky", 
+    "vengeful", 
+    "wise", 
+    "arrogant", 
+    "competitive", 
+    "grumpy", 
+    "cunning", 
+    "oblivious", 
+    "gloomy", 
+    "sincere", 
+    "flamboyant", 
+    "rebellious"
+]
+
+# {
+#         "name": "",
+#         "traits": ["troublesome", "lonesome", "fierce", "bloodthirsty", "cold", "childish", "playful", "charismatic", "bold", "daring", 
+#                    "nervous", "righteous", "insecure", "strict", "compassionate", "thoughtful", "ambitious", "confident", "adventurous", 
+#                    "calm", "careful", "faithful", "loving", "loyal", "responsible", "shameless", "strange", "sneaky", "vengeful", "wise", 
+#                    "arrogant", "competitive", "grumpy", "cunning", "oblivious", "gloomy", "sincere", "flamboyant", "rebellious"],
+#         "colors": ["any", "red", "ginger", "orange", "silver", "grey", "blue", "brown", "black", "white", "cream", "yellow", "lilac", "tortoiseshell"]
+#     },
+def hasTrait(traits, prefixes):
+    
+
+def genRandomTraits():
+    pickedTraits = []
+    for i in range(2):
+        pickedTraits.append(random.choice(traits))
+    return pickedTraits
+
+def getPrefixFromTraits():
+    prefixesList = filter()
