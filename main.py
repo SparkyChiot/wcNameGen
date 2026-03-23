@@ -1,4 +1,7 @@
+import random
+
 prefixes = [
+<<<<<<< HEAD
     {
         "name": "acorn", 
         "traits": ["nervous", "childish", "insecure", "calm", "careful", "faithful", "loving", "oblivious"],
