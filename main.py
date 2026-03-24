@@ -1,5 +1,4 @@
 import random
-import difflib
 
 prefixes = [
     {
@@ -80,6 +79,22 @@ traits = [
     "flamboyant", 
     "rebellious"
 ]
+colors =[
+    "any",
+    "red",
+    "ginger",
+    "orange",
+    "silver",
+    "grey",
+    "blue",
+    "brown",
+    "black",
+    "white",
+    "cream",
+    "yellow",
+    "lilac",
+    "tortoiseshell"
+]
 
 # {
 #         "name": "",
@@ -88,15 +103,43 @@ traits = [
 #                    "calm", "careful", "faithful", "loving", "loyal", "responsible", "shameless", "strange", "sneaky", "vengeful", "wise", 
 #                    "arrogant", "competitive", "grumpy", "cunning", "oblivious", "gloomy", "sincere", "flamboyant", "rebellious"],
 #         "colors": ["any", "red", "ginger", "orange", "silver", "grey", "blue", "brown", "black", "white", "cream", "yellow", "lilac", "tortoiseshell"]
-#     },
-def hasTrait(traits, prefixes):
-    
+#     },   
 
 def genRandomTraits():
-    pickedTraits = []
-    for i in range(2):
-        pickedTraits.append(random.choice(traits))
-    return pickedTraits
+    pickedTraits = random.sample(traits, 2)
+    pickedColor = random.choice(colors)
+    return pickedTraits, pickedColor
 
-def getPrefixFromTraits():
-    prefixesList = filter()
+def getPrefixFromTraits(prefixes):
+    pickedTraits, pickedColor = genRandomTraits()
+    ranTraits = pickedTraits + [pickedColor]
+    prefixesList = []
+    for each in prefixes:
+        matches = 0
+        for trait in pickedTraits:
+            if trait in each["traits"]:
+                matches += 1
+
+        if matches == 2 and (pickedColor in each["colors"] or "any" in each["colors"]):
+            prefixesList.append(each["name"])
+
+    # Try 1 trait
+    if not prefixesList:
+        for each in prefixes:
+            matches = 0
+            for trait in pickedTraits:
+                if trait in each["traits"]:
+                    matches += 1
+
+            if matches == 1 and (pickedColor in each["colors"] or "any" in each["colors"]):
+                prefixesList.append(each["name"])
+
+    # Try 0 traits
+    if not prefixesList:
+        for each in prefixes:
+            if pickedColor in each["colors"] or "any" in each["colors"]:
+                prefixesList.append(each["name"])
+
+    return random.choice(prefixesList)
+
+print(getPrefixFromTraits(prefixes))
