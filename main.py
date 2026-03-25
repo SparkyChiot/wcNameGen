@@ -65,12 +65,49 @@ suffixes = [
     },
 ]
 
-def getAvailableTraits():
-    for each in prefixes:
-        for each in traits:
 
 
-traits = getAvailableTraits()
+traits = [
+    "troublesome", 
+    "lonesome", 
+    "fierce", 
+    "bloodthirsty", 
+    "cold", 
+    "childish", 
+    "playful", 
+    "charismatic", 
+    "bold", 
+    "daring", 
+    "nervous", 
+    "righteous", 
+    "insecure", 
+    "strict", 
+    "compassionate", 
+    "thoughtful", 
+    "ambitious", 
+    "confident", 
+    "adventurous", 
+    "calm", 
+    "careful", 
+    "faithful", 
+    "loving", 
+    "loyal", 
+    "responsible", 
+    "shameless", 
+    "strange", 
+    "sneaky", 
+    "vengeful",
+    "wise", 
+    "arrogant", 
+    "competitive", 
+    "grumpy", 
+    "cunning", 
+    "oblivious", 
+    "gloomy", 
+    "sincere", 
+    "flamboyant", 
+    "rebellious"
+]
 colors = [
     "any",
     "red",
